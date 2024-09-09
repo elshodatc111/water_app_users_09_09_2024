@@ -5,17 +5,15 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+        title:  Column(
           children: [
-            CircleAvatar(
-              maxRadius: 20,
-              child:Image.asset(
-                'assets/logo.png',
-              ),
-            ),
-            const SizedBox(width: 10),
-            const Text("Water",style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Colors.white),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Water",style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Colors.white),
+                ),
+                const SizedBox(width: 10),
+              ],
             ),
           ],
         ),
@@ -25,20 +23,20 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           // Geolokatsiya tugmasi
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          Container(
+            color: Colors.blue.shade400,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text("Joriy joylashuv",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black54,
+                    color: Colors.black,
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.location_on, color: Color(0xFF3498db)),
+                  icon: Icon(Icons.location_on, color: Color(0xFF000000)),
                   onPressed: () {
                     // Geolokatsiyani aniqlash funksiyasi
                   },
@@ -46,32 +44,13 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-
-          // Qidiruv maydoni
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Qidirish...',
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.grey.shade400),
-                ),
-              ),
-              onChanged: (value) {
-                // Qidiruv funksiyasi
-              },
-            ),
-          ),
-
           const SizedBox(height: 20),
 
           // Yetkazib beruvchi tashkilotlar ro'yxati (Karta formatida)
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              itemCount: 5, // Tashkilotlar soni
+              itemCount: 15, // Tashkilotlar soni
               itemBuilder: (context, index) {
                 return Card(
                   margin: const EdgeInsets.only(bottom: 12),
