@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -38,7 +39,8 @@ class HomePage extends StatelessWidget {
                 IconButton(
                   icon: Icon(Icons.location_on, color: Color(0xFF000000)),
                   onPressed: () {
-                    // Geolokatsiyani aniqlash funksiyasi
+                    final box = GetStorage();
+                    box.remove('token');
                   },
                 ),
               ],
